@@ -1,0 +1,22 @@
+runtime: php72
+
+runtime_config:
+  document_root: .
+
+handlers:
+-url: /(.+.(gif|png|jpg|css|js|map|PNG))$
+ static_files: \1
+ upload: .+\.(gif|png|jpg|css|js|map|PNG)$
+-url: /.*
+ script: auto
+
+entrypoint:
+ serve index.php
+
+env_variables:
+ CLOUDSQL_USER: root
+ CLODSQL_DB: movie_database
+ CLOUDSQL_PASSWORD: teambarca
+ CLOUDSQL_DSN: /cloudsql/db-411-project:us-central1:database-instance-1
+
+#  /cloudsql/db-411-project:us-central1:database-instance-1
